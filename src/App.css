@@ -3,7 +3,6 @@
 }
 
 .App-header {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,5 +33,13 @@
   background-color: white;
   color: #d26c22;
   margin-right: 3px;
+}
+
+.container{
+display: flex;
+flex-wrap: wrap;
+}
+.table-box{
+  width: 20%;
 }
 
