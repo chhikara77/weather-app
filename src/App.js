@@ -21,11 +21,8 @@ function App() {
         const data = await response.json();
         console.log(response)
         if (response.status === 200) {
-         
-
           // Extract daily weather information
           const dailyWeatherData = {};
-
           data.list.forEach(entry => {
             const date = entry.dt_txt.split(' ')[0];
 
