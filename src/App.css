@@ -15,7 +15,7 @@ p{
   color: #d26c22;
 }
 .App-header input {
-    width: 12%;
+    width: 200px;
     height: 27px;
     border-radius: 5px ;
     border: 1px solid #d26c22;
@@ -37,6 +37,9 @@ p{
   background-color: white;
   color: #d26c22;
   margin-right: 3px;
+}
+.search-box{
+  display: flex;
 }
 
 .container{
@@ -79,5 +82,18 @@ justify-content: center;
     border: 1px solid black;
     margin: 10px;
   }
+}
+.loader {
+  border: 8px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 8px solid #3498db;
+  width: 10px;
+  height: 10px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 

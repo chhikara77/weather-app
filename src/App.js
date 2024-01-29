@@ -6,7 +6,7 @@ import WeatherInfo from './components/WeatherInfo';
 function App() {
 
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [city,setCity] = useState(null);
 
@@ -17,6 +17,7 @@ function App() {
   const getData = () =>{
     const fetchData = async () => {
       try {
+        setLoading(true)
         const response = await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=3ba690e3234fdbdba1669f481c481e6c`); 
         const data = await response.json();
         console.log(response)
@@ -52,30 +53,25 @@ function App() {
          console.log(dailyWeatherArray)
           setData(dailyWeatherArray);
         }
-        //setData(result);
       } catch (error) {
         //setError(error);
         console.log('erroe',error)
-      } 
+      } finally {
+        setLoading(false);
+      }
     };
 
     fetchData();
   }
 
-  // if (loading) {
-  //   return <p>Loading...</p>;
-  // }
-
-  // if (error) {
-  //   return <p>Error: {error.message}</p>;
-  // }
+  
 
   return (
     <div className="App">
       <header className="App-header">
        <h1>Weather in your city</h1>
        <input onChange={(e)=>setCity(e.target.value)} type="text" />
-       <button onClick={getData}><span className='question-icon'>?</span>Search</button>
+      <div className='search-box'> <button onClick={getData}><span className='question-icon'>?</span>Search</button>{loading && <div class="loader"></div>}</div>
       </header>
       <WeatherInfo list={data}/>
     </div>
