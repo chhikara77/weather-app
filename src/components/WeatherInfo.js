@@ -6,23 +6,23 @@ const WeatherInfo = ({list}) => {
     <div className='container'>
         {list.length>0 && list.map(({ date, min_temp, max_temp, humidity, pressure }) => (
                 <div className='table-box'>
-                    <div className='row'>{date}</div>
-        <div className='row'>Temperature</div>
-        <div className='row'>
-            <div>Min</div>
-            <div>Max</div>
+                    <div className='row date'>{date}</div>
+        <div className='row gray-row'><p>Temperature</p></div>
+        <div className='row gray-row'>
+            <div className='column'><p>Min</p></div>
+            <div className='column'><p>Max</p></div>
+        </div>
+        <div className='row gray-row'>
+            <div className='column'>{min_temp}</div>
+            <div className='column'>{max_temp}</div>
         </div>
         <div className='row'>
-            <div>{min_temp}</div>
-            <div>{max_temp}</div>
+            <div className='column'><p>Pressure</p></div>
+            <div className='column'>{pressure}</div>
         </div>
         <div className='row'>
-            <div>Pressure</div>
-            <div>{pressure}</div>
-        </div>
-        <div className='row'>
-            <div>Humidity</div>
-            <div>{humidity}</div>
+            <div className='column'><p>Humidity</p></div>
+            <div className='column'>{humidity}</div>
         </div>
                 </div>
               ))}
